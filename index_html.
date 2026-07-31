@@ -30,27 +30,6 @@ footer{text-align:center;padding:28px;color:#888;border-top:1px solid #222}
 
 /* Paste the new CSS here */
 
-.tool-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-margin-top:35px;
-}
-.tool-card{
-background:#181818;
-border:1px solid #333;
-border-radius:15px;
-padding:25px;
-text-align:center;
-cursor:pointer;
-transition:.3s;
-}
-.tool-card:hover{
-transform:translateY(-6px);
-border-color:#e31b23;
-}
-
-
 #connect{
     text-align:center;
     padding:50px 20px;
@@ -122,14 +101,7 @@ border-color:#e31b23;
 </style>
 </head>
 <body>
-<nav><div class="links">
-<a href="#membership">Membership</a>
-<a href="#gallery">Gallery</a>
-<a href="#anime">Anime</a>
-<a href="#tools">Fitness Tools</a>
-<a href="#contact">Contact</a>
-<a class="join" href="https://wa.me/918414822076?text=Hi%20CARVEX%20Gym%2C%20I%20want%20to%20join.">JOIN NOW</a>
-</div></nav>
+<nav><div class="brand">CARVEX <span>GYM</span></div><div class="links"><a href="#membership">Membership</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a><a class="join" href="https://wa.me/918414822076?text=Hi%20CARVEX%20Gym%2C%20I%20want%20to%20join.">JOIN NOW</a></div></nav>
 
 <header class="hero">
 <div class="hero-content">
@@ -261,61 +233,6 @@ border-color:#e31b23;
         The anime images displayed in this section belong to their respective creators, studios, publishers, and copyright holders. CARVEX Gym does not claim ownership of any artwork or characters. These images are shared solely for motivational purposes, fan appreciation, and to inspire discipline, perseverance, and self-improvement.
     </p>
 </section>
-    <section id="tools">
-
-<h2 class="title">CARVEX <span>FITNESS TOOLS</span></h2>
-
-<p class="sub">
-Free fitness calculators for everyone.
-</p>
-
-<div class="tool-grid">
-<div class="tool-card" onclick="showCalculator('bmi')">
-<h3>⚖️ BMI Calculator</h3>
-<p>Check your Body Mass Index.</p>
-</div>
-
-<div class="tool-card" onclick="showCalculator('calories')">
-<h3>🔥 Calories Calculator</h3>
-<p>Estimate daily calories.</p>
-</div>
-
-<div class="tool-card" onclick="showCalculator('protein')">
-<h3>🍗 Protein Calculator</h3>
-<p>Daily protein intake.</p>
-</div>
-
-<div class="tool-card" onclick="showCalculator('water')">
-<h3>💧 Water Calculator</h3>
-<p>Daily water intake.</p>
-</div>
-
-<div class="tool-card" onclick="showCalculator('goal')">
-<h3>🎯 Goal Planner</h3>
-<p>Weight loss or gain.</p>
-</div>
-
-<div class="tool-card" onclick="showCalculator('bodyfat')">
-<h3>📏 Body Fat Calculator</h3>
-<p>Estimate body fat %.</p>
-</div>
-
-<div class="tool-card" onclick="showCalculator('macro')">
-<h3>🥗 Macro Calculator</h3>
-<p>Protein, carbs & fats.</p>
-</div>
-
-<div class="tool-card" onclick="showCalculator('onerm')">
-<h3>🏋️ 1RM Calculator</h3>
-<p>Estimate your max lift.</p>
-</div>
-
-<div id="calculator-area"
-style="margin-top:30px;background:#181818;padding:30px;border-radius:10px;border:1px solid #333;">
-Click a calculator above.
-</div>
-
-</section>
 <section>
 <h2 class="title">TRAIN <span>YOUR WAY</span></h2>
 <div class="cards">
@@ -378,80 +295,6 @@ document.querySelectorAll(".gallery img").forEach(img => {
 lightbox.addEventListener("click", () => {
     lightbox.classList.remove("active");
 });
-   function showCalculator(type){
-
-if(type=="bmi"){
-
-document.getElementById("calculator-area").innerHTML=`
-<h2>⚖️ BMI Calculator</h2>
-
-<input id="height" type="number" placeholder="Height (cm)"><br><br>
-
-<input id="weight" type="number" placeholder="Weight (kg)"><br><br>
-
-<button onclick="calculateBMI()">Calculate BMI</button>
-
-<h3 id="result"></h3>
-`;
-
-}
-
-else if(type=="calories"){
-document.getElementById("calculator-area").innerHTML="<h2>🔥 Calories Calculator</h2><p>Coming Soon</p>";
-}
-
-else if(type=="protein"){
-document.getElementById("calculator-area").innerHTML="<h2>🍗 Protein Calculator</h2><p>Coming Soon</p>";
-}
-
-else if(type=="water"){
-document.getElementById("calculator-area").innerHTML="<h2>💧 Water Calculator</h2><p>Coming Soon</p>";
-}
-
-else if(type=="goal"){
-document.getElementById("calculator-area").innerHTML="<h2>🎯 Goal Planner</h2><p>Coming Soon</p>";
-}
-
-else if(type=="bodyfat"){
-document.getElementById("calculator-area").innerHTML="<h2>📏 Body Fat Calculator</h2><p>Coming Soon</p>";
-}
-
-else if(type=="macro"){
-document.getElementById("calculator-area").innerHTML="<h2>🥗 Macro Calculator</h2><p>Coming Soon</p>";
-}
-
-else if(type=="onerm"){
-document.getElementById("calculator-area").innerHTML="<h2>🏋️ 1RM Calculator</h2><p>Coming Soon</p>";
-}
-
-}
-function calculateBMI(){
-
-let h=document.getElementById("height").value/100;
-
-let w=document.getElementById("weight").value;
-
-let bmi=(w/(h*h)).toFixed(1);
-
-let status="";
-
-if(bmi<18.5){
-status="Underweight";
-}
-else if(bmi<25){
-status="Normal Weight";
-}
-else if(bmi<30){
-status="Overweight";
-}
-else{
-status="Obese";
-}
-
-document.getElementById("result").innerHTML=
-"Your BMI is <span style='color:red'>"+bmi+"</span><br>"+status;
-
-}
 </script>
 
 </body>

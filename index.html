@@ -234,6 +234,34 @@ footer{text-align:center;padding:28px;color:#888;border-top:1px solid #222}
         The anime images displayed in this section belong to their respective creators, studios, publishers, and copyright holders. CARVEX Gym does not claim ownership of any artwork or characters. These images are shared solely for motivational purposes, fan appreciation, and to inspire discipline, perseverance, and self-improvement.
     </p>
 </section>
+    <section id="tools">
+
+<h2 class="title">CARVEX <span>FITNESS TOOLS</span></h2>
+
+<p class="sub">
+Free calculators for your fitness journey.
+</p>
+
+<div class="cards">
+
+<div class="card" onclick="showCalculator('calories')" style="cursor:pointer;">
+<h3>🔥 Calories Calculator</h3>
+<p>Calculate your daily calorie needs.</p>
+</div>
+
+<div class="card" onclick="showCalculator('protein')" style="cursor:pointer;">
+<h3>🍗 Protein Calculator</h3>
+<p>Calculate your daily protein intake.</p>
+</div>
+
+</div>
+
+<div id="calculator-area"
+style="margin-top:30px;background:#141414;padding:25px;border-radius:10px;border:1px solid #333;">
+Select a calculator above.
+</div>
+
+</section>
 <section>
 <h2 class="title">TRAIN <span>YOUR WAY</span></h2>
 <div class="cards">
@@ -296,49 +324,127 @@ document.querySelectorAll(".gallery img").forEach(img => {
 lightbox.addEventListener("click", () => {
     lightbox.classList.remove("active");
 });
-    function showCalculator(type){
+   
+function showCalculator(type){
 
-if(type=="bmi"){
+if(type=="calories"){
+
 document.getElementById("calculator-area").innerHTML=`
-<h2>BMI Calculator</h2>
+
+<h2>🔥 Calories Calculator</h2>
+
+<input id="age" type="number" placeholder="Age"><br><br>
 
 <input id="height" type="number" placeholder="Height (cm)"><br><br>
 
 <input id="weight" type="number" placeholder="Weight (kg)"><br><br>
 
-<button onclick="calculateBMI()">Calculate BMI</button>
+<select id="gender">
+<option value="male">Male</option>
+<option value="female">Female</option>
+</select>
+
+<br><br>
+
+<select id="activity">
+<option value="1.2">Sedentary</option>
+<option value="1.375">Light Exercise</option>
+<option value="1.55">Moderate Exercise</option>
+<option value="1.725">Heavy Exercise</option>
+<option value="1.9">Athlete</option>
+</select>
+
+<br><br>
+
+<button onclick="calculateCalories()">Calculate</button>
 
 <h3 id="result"></h3>
+
 `;
+
+}
+
+else if(type=="protein"){
+
+document.getElementById("calculator-area").innerHTML=`
+
+<h2>🍗 Protein Calculator</h2>
+
+<input id="pweight" type="number" placeholder="Weight (kg)">
+
+<br><br>
+
+<select id="goal">
+
+<option value="1.6">Maintenance</option>
+
+<option value="1.8">Fat Loss</option>
+
+<option value="2.0">Muscle Gain</option>
+
+</select>
+
+<br><br>
+
+<button onclick="calculateProtein()">Calculate</button>
+
+<h3 id="result"></h3>
+
+`;
+
 }
 
 }
 
-function calculateBMI(){
+function calculateCalories(){
 
-let h=document.getElementById("height").value/100;
+let age=Number(document.getElementById("age").value);
+let weight=Number(document.getElementById("weight").value);
+let height=Number(document.getElementById("height").value);
+let activity=Number(document.getElementById("activity").value);
+let gender=document.getElementById("gender").value;
 
-let w=document.getElementById("weight").value;
+let bmr;
 
-let bmi=(w/(h*h)).toFixed(1);
-
-let status="";
-
-if(bmi<18.5){
-status="Underweight";
-}
-else if(bmi<25){
-status="Normal Weight";
-}
-else if(bmi<30){
-status="Overweight";
-}
-else{
-status="Obese";
+if(gender=="male"){
+bmr=10*weight+6.25*height-5*age+5;
+}else{
+bmr=10*weight+6.25*height-5*age-161;
 }
 
-document.getElementById("result").innerHTML=
-"Your BMI is <span style='color:red'>"+bmi+"</span><br>"+status;
+let maintenance=Math.round(bmr*activity);
+
+document.getElementById("result").innerHTML=`
+
+Maintenance Calories : <span style="color:#e31b23">${maintenance}</span><br><br>
+
+Fat Loss : ${maintenance-500} kcal<br>
+
+Lean Bulk : ${maintenance+250} kcal
+
+`;
+
+}
+
+function calculateProtein(){
+
+let weight=Number(document.getElementById("pweight").value);
+
+let factor=Number(document.getElementById("goal").value);
+
+let protein=Math.round(weight*factor);
+
+document.getElementById("result").innerHTML=`
+
+Daily Protein :
+
+<span style="color:#e31b23">
+
+${protein} g
+
+</span>
+
+`;
 
 }
 </script>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CARVEX Gym, Thuribari, Basugaon. Train stronger with modern equipment and affordable membership.">
+<title>CARVEX Gym | Break Limits</title>
+<style>
+:root{--red:#e31b23;--dark:#090909;--card:#141414;--text:#f7f7f7;--muted:#b8b8b8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--dark);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+nav{position:fixed;top:0;width:100%;z-index:10;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:space-between;padding:10px 6%;border-bottom:1px solid #292929}
+.brand{font-size:22px;font-weight:900;letter-spacing:2px}.brand span{color:var(--red)}
+nav a{color:white;text-decoration:none;margin-left:16px;font-size:14px}.join{background:var(--red);padding:10px 15px;border-radius:5px;font-weight:bold}
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 7% 60px;position:relative;background:linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.5)),url('legpress.jpg') center/cover}
+.hero-content{max-width:720px}.logo{width:130px;height:130px;object-fit:cover;border-radius:50%;background:white;margin-bottom:20px}
+.kicker{color:var(--red);font-weight:bold;letter-spacing:3px}.hero h1{font-size:clamp(48px,10vw,105px);line-height:.88;margin:10px 0}.hero h1 span{color:var(--red)}
+.hero p{font-size:20px;color:#ddd;max-width:600px;line-height:1.5}.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;padding:14px 20px;text-decoration:none;color:white;border:1px solid #555;border-radius:5px;font-weight:bold}.btn.red{background:var(--red);border-color:var(--red)}
+section{padding:75px 7%}.title{font-size:38px;margin:0 0 10px}.title span{color:var(--red)}.sub{color:var(--muted);margin-bottom:32px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--card);padding:28px;border:1px solid #292929;border-radius:10px}
+.price{font-size:42px;font-weight:900;color:var(--red);margin:8px 0}.small{color:var(--muted)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.gallery img{width:100%;height:300px;object-fit:cover;border-radius:7px}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:20px}.info .card h3{color:var(--red)}
+.cta{text-align:center;background:linear-gradient(135deg,#1a0001,#090909)}.cta h2{font-size:44px;margin-bottom:10px}
+footer{text-align:center;padding:28px;color:#888;border-top:1px solid #222}
+@media(max-width:750px){nav .links a:not(.join){display:none}.cards,.gallery,.info{grid-template-columns:1fr}.gallery img{height:250px}.hero{background-position:center}.hero p{font-size:17px}.cta h2{font-size:34px}}
+@media(max-width:750px){
+    ...
+}
+
+/* Paste the new CSS here */
+
+#connect{
+    text-align:center;
+    padding:50px 20px;
+}
+
+.social-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    margin-top:20px;
+}
+
+.social-buttons a{
+    background:#d10000;
+    color:white;
+    padding:12px 22px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.social-buttons a:hover{
+    background:#ff2b2b;
+    transform:scale(1.05);
+}
+.join-button:hover{
+    background:#ff3737;
+    transform:scale(1.05);
+}
+
+/* Paste the new CSS here */
+
+.gallery img{
+    cursor:pointer;
+    transition:.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.03);
+}
+
+.lightbox{
+    display:none;
+    position:fixed;
+    z-index:9999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.95);
+    justify-content:center;
+    align-items:center;
+}
+
+.lightbox img{
+    max-width:95%;
+    max-height:95%;
+    border-radius:10px;
+}
+
+.lightbox.active{
+    display:flex;
+}
+
+</style>
+</style>
+</style>
+</head>
+<body>
+<nav><div class="brand">CARVEX <span>GYM</span></div><div class="links"><a href="#membership">Membership</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a><a class="join" href="https://wa.me/918414822076?text=Hi%20CARVEX%20Gym%2C%20I%20want%20to%20join.">JOIN NOW</a></div></nav>
+
+<header class="hero">
+<div class="hero-content">
+<img class="logo" src="logo.jpg" alt="CARVEX Gym logo">
+<div class="kicker">THURIBARI • BASUGAON</div>
+<h1>BREAK<br><span>LIMITS.</span></h1>
+<p>Build strength. Build discipline. Build yourself. Train at CARVEX Gym with a growing range of strength and fitness equipment.</p>
+<div class="btns"><a class="btn red" href="https://wa.me/918414822076?text=Hi%20CARVEX%20Gym%2C%20I%20want%20to%20join.">JOIN ON WHATSAPP</a><a class="btn" href="#gallery">EXPLORE THE GYM</a></div>
+</div>
+</header>
+
+<section id="membership">
+  <h2 class="title">CHOOSE YOUR <span>MEMBERSHIP</span></h2>
+  <p class="sub">Simple plans. Train your way. Break limits.</p>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="small">REGULAR MEMBER</div>
+      <div class="price">₹600</div>
+      <p>Per month</p>
+    </div>
+
+    <div class="card">
+      <div class="small">GUEST / TEMPORARY</div>
+      <div class="price">₹700</div>
+      <p>Per month</p>
+    </div>
+
+    <div class="card">
+      <div class="small">3-MONTH MEMBERSHIP</div>
+      <div class="price">₹2,000</div>
+      <p>Three months of training</p>
+    </div>
+
+    <div class="card">
+      <div class="small">DAY PASS</div>
+      <div class="price">₹70</div>
+      <p>Single-day training</p>
+    </div>
+
+    <div class="card">
+      <div class="small">REGISTRATION</div>
+      <div class="price">₹1,200</div>
+      <p>One-time registration fee</p>
+    </div>
+
+    <div class="card">
+      <div class="small">READY TO TRAIN?</div>
+      <h3>JOIN CARVEX</h3>
+      <p>Message us directly for membership and availability.</p>
+      <a class="btn red" href="https://wa.me/918414822076?text=Hi%20CARVEX%20Gym%2C%20I%20want%20to%20join.">
+        WHATSAPP US
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="summer-champs">
+  <h2 class="title">CARVEX <span>SUMMER CHAMPS 2026</span></h2>
+
+  <p class="sub">
+    Every participant pushed beyond their limits and completed
+    <strong>1,000+ REPS</strong> in the CARVEX Summer Endurance Challenge.
+  </p>
+
+  <div class="gallery">
+    <img src="summer champs (1).jpg" alt="CARVEX Summer Champs 2026">
+    <img src="summer champs (2).jpg" alt="CARVEX Summer Champs 2026">
+    <img src="summer champs (3).jpg" alt="CARVEX Summer Champs 2026">
+    <img src="summer champs (4).jpg" alt="CARVEX Summer Champs 2026">
+    <img src="summer champs (5).jpg" alt="CARVEX Summer Champs 2026">
+    <img src="summer champs (6).jpg" alt="CARVEX Summer Champs 2026">
+    <img src="summer champs (7).jpg" alt="CARVEX Summer Champs 2026">
+    <img src="summer champs (8).jpg" alt="CARVEX Summer Champs 2026">
+    <img src="summer champs (9).jpg" alt="CARVEX Summer Champs 2026">
+    <img src="summer champs (10).jpg" alt="CARVEX Summer Champs 2026">
+  </div>
+</section>
+
+<section id="gallery">
+<h2 class="title">INSIDE <span>CARVEX</span></h2>
+<p class="sub">Real photos. Real equipment. Your next training ground.</p>
+<div class="gallery">
+<img src="gymwide.jpg" alt="CARVEX gym floor">
+<img src="dumbbells.jpg" alt="CARVEX dumbbells">
+<img src="legpress.jpg" alt="CARVEX strength equipment">
+<img src="machines1.jpg" alt="CARVEX machines">
+<img src="weights.jpg" alt="CARVEX free weights">
+<img src="rack.jpg" alt="CARVEX barbell rack">
+</div>
+</section>
+<section id="anime">
+    <h2 class="title">ANIME <span>MOTIVATION</span></h2>
+
+    <p class="small" style="text-align:center;max-width:800px;margin:auto;">
+        A collection of motivational anime moments that inspire discipline,
+        resilience and self-improvement.
+    </p>
+
+    <div class="gallery">
+        <img src="anime1.jpg" alt="Anime Motivation 1">
+        <img src="anime2.jpg" alt="Anime Motivation 2">
+        <img src="anime3.jpg" alt="Anime Motivation 3">
+        <img src="anime4.jpg" alt="Anime Motivation 4">
+        <img src="anime5.jpg" alt="Anime Motivation 5">
+        <img src="anime6.jpg" alt="Anime Motivation 6">
+        <img src="anime7.jpg" alt="Anime Motivation 7">
+        <img src="anime8.jpg" alt="Anime Motivation 8">
+        <img src="anime9.jpg" alt="Anime Motivation 9">
+        <img src="anime10.jpg" alt="Anime Motivation 10">
+        <img src="anime11.jpg" alt="Anime Motivation 11">
+        <img src="anime12.jpg" alt="Anime Motivation 12">
+        <img src="anime13.jpg" alt="Anime Motivation 13">
+        <img src="anime14.jpg" alt="Anime Motivation 14">
+        <img src="anime15.jpg" alt="Anime Motivation 15">
+        <img src="anime16.jpg" alt="Anime Motivation 16">
+        <img src="anime17.jpg" alt="Anime Motivation 17">
+        <img src="anime18.jpg" alt="Anime Motivation 18">
+        <img src="anime19.jpg" alt="Anime Motivation 19">
+        <img src="anime20.jpg" alt="Anime Motivation 20">
+        <img src="anime21.jpg" alt="Anime Motivation 21">
+    </div>
+
+    <p style="font-size:14px;color:#999;text-align:center;max-width:900px;margin:30px auto 0;">
+        <strong>Disclaimer:</strong><br>
+        The anime images displayed in this section belong to their respective creators, studios, publishers, and copyright holders. CARVEX Gym does not claim ownership of any artwork or characters. These images are shared solely for motivational purposes, fan appreciation, and to inspire discipline, perseverance, and self-improvement.
+    </p>
+</section>
+<section>
+<h2 class="title">TRAIN <span>YOUR WAY</span></h2>
+<div class="cards">
+<div class="card"><h3>Strength Training</h3><p class="small">Free weights, barbells, dumbbells and dedicated strength equipment.</p></div>
+<div class="card"><h3>Machine Training</h3><p class="small">Multiple resistance machines for focused and controlled training.</p></div>
+<div class="card"><h3>Built for Progress</h3><p class="small">A straightforward training environment for beginners and regular lifters.</p></div>
+</div>
+</section>
+
+<section id="contact">
+<h2 class="title">VISIT <span>CARVEX</span></h2>
+<div class="info">
+<div class="card"><h3>Opening Hours</h3><p><strong>Morning</strong><br>5:30 AM – 11:30 AM</p><p><strong>Evening</strong><br>4:00 PM – 9:00 PM</p></div>
+<div class="card"><h3>Location & Contact</h3><p>Thuribari, Ward No. 3<br>Basugaon – 783372</p><p><strong>Phone / WhatsApp</strong><br>8414822076</p><a class="btn red" href="tel:+918414822076">CALL NOW</a></div>
+</div>
+</section>
+
+<section class="cta">
+<h2>YOUR NEXT REP STARTS <span style="color:#e31b23">HERE.</span></h2>
+<p class="sub">Come see the gym. Meet us. Start training.</p>
+<a class="btn red" href="https://wa.me/918414822076?text=Hi%20CARVEX%20Gym%2C%20I%20want%20to%20join.">JOIN CARVEX</a>
+</section>
+<section id="connect">
+    <h2>Connect With CARVEX</h2>
+    <p>Visit our gym and follow our journey online.</p>
+
+    <div class="social-buttons">
+        <a href="https://maps.app.goo.gl/BmmL8gN6gfgL6vtP6" target="_blank">
+            📍 Google Maps
+        </a>
+
+        <a href="https://www.youtube.com/@carvex2025" target="_blank">
+            🎥 YouTube
+        </a>
+
+        <a href="https://www.instagram.com/cravex2025/" target="_blank">
+            📸 Instagram
+        </a>
+    </div>
+</section>
+ 
+  </div>
+</section>
+<footer>© 2026 CARVEX Gym • Thuribari, Basugaon • Break Limits.</footer>
+    <div class="lightbox" id="lightbox">
+    <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+document.querySelectorAll(".gallery img").forEach(img => {
+    img.addEventListener("click", () => {
+        lightbox.classList.add("active");
+        lightboxImg.src = img.src;
+    });
+});
+
+lightbox.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+});
+    function showCalculator(type){
+
+if(type=="bmi"){
+document.getElementById("calculator-area").innerHTML=`
+<h2>BMI Calculator</h2>
+
+<input id="height" type="number" placeholder="Height (cm)"><br><br>
+
+<input id="weight" type="number" placeholder="Weight (kg)"><br><br>
+
+<button onclick="calculateBMI()">Calculate BMI</button>
+
+<h3 id="result"></h3>
+`;
+}
+
+}
+
+function calculateBMI(){
+
+let h=document.getElementById("height").value/100;
+
+let w=document.getElementById("weight").value;
+
+let bmi=(w/(h*h)).toFixed(1);
+
+let status="";
+
+if(bmi<18.5){
+status="Underweight";
+}
+else if(bmi<25){
+status="Normal Weight";
+}
+else if(bmi<30){
+status="Overweight";
+}
+else{
+status="Obese";
+}
+
+document.getElementById("result").innerHTML=
+"Your BMI is <span style='color:red'>"+bmi+"</span><br>"+status;
+
+}
+</script>
+
+</body>
+</html>

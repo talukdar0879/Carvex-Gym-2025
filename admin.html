@@ -479,39 +479,37 @@ document.getElementById("content").innerHTML=`
 <h1 style="color:#ff2b2b;">Membership</h1>
 
 <br>
+<h1>Membership</h1>
+
+<input id="searchMember" placeholder="Search Member">
+
+<input id="memberName" placeholder="Member Name">
+
+<input id="memberPhone" placeholder="Phone Number">
+
+<input type="date" id="joinDate">
+
+<select id="feeStatus">
+    <option>Active</option>
+    <option>Due</option>
+</select>
+
+<button onclick="addMember()">Add Member</button>
+
+<br><br>
 
 <table>
 
 <tr>
-
-<th>Name</th>
-
-<th>Expiry</th>
-
-<th>Status</th>
-
+    <th>Name</th>
+    <th>Expiry</th>
+    <th>Status</th>
+    <th>Action</th>
 </tr>
 
-<tr>
+<tbody id="memberTable">
 
-<td>Rahul</td>
-
-<td>25 Aug</td>
-
-<td>Active</td>
-
-</tr>
-
-<tr>
-
-<td>Aman</td>
-
-<td>30 Jul</td>
-
-<td>Expired</td>
-
-</tr>
-
+</tbody>
 </table>
 
 <br>
@@ -604,31 +602,100 @@ table.innerHTML+=`
 
 }
 
+let memberList = JSON.parse(localStorage.getItem("members")) || [];
+
+function saveMembers(){
+    localStorage.setItem("members", JSON.stringify(memberList));
+}
+
+function loadMembers(){
+
+    let table = document.getElementById("memberTable");
+
+    if(!table) return;
+
+    let search = "";
+
+    let searchBox = document.getElementById("searchMember");
+
+    if(searchBox){
+        search = searchBox.value.toLowerCase();
+    }
+
+    table.innerHTML = "";
+
+    memberList.forEach((member,index)=>{
+
+        if(
+            member.name.toLowerCase().includes(search) ||
+            member.phone.includes(search)
+        ){
+
+            table.innerHTML += `
+            <tr>
+                <td>${member.name}</td>
+                <td>${member.join}</td>
+                <td>${member.fee}</td>
+                <td>
+                    <button class="red" onclick="deleteMember(${index})">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+            `;
+        }
+
+    });
+
+}
+
 function addMember(){
 
-let input=document.getElementById("memberName");
+    let name=document.getElementById("memberName").value.trim();
+    let phone=document.getElementById("memberPhone").value.trim();
+    let join=document.getElementById("joinDate").value;
+    let fee=document.getElementById("feeStatus").value;
 
-let name=input.value.trim();
+    if(name==""){
+        alert("Enter Member Name");
+        return;
+    }
 
-if(name=="") return;
+    memberList.push({
+        name:name,
+        phone:phone,
+        join:join,
+        fee:fee
+    });
 
-memberList.push(name);
+    saveMembers();
 
-input.value="";
+    document.getElementById("memberName").value="";
+    document.getElementById("memberPhone").value="";
+    document.getElementById("joinDate").value="";
+    document.getElementById("feeStatus").value="Active";
 
-loadMembers();
-
-document.getElementById("members").innerHTML=memberList.length;
+    loadMembers();
 
 }
 
 function deleteMember(index){
 
-memberList.splice(index,1);
+    if(confirm("Delete this member?")){
 
-loadMembers();
+        memberList.splice(index,1);
 
-document.getElementById("members").innerHTML=memberList.length;
+        saveMembers();
+
+        loadMembers();
+
+    }
+
+}
+
+window.onload=function(){
+
+    loadMembers();
 
 }
 </script>

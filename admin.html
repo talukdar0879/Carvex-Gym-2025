@@ -1,19 +1,29 @@
+<div style="display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+max-width:900px;
+margin:40px auto;">
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>CARVEX Admin Panel</title>
-</head>
-<body style="background:#111;color:white;font-family:Arial;text-align:center;padding:50px;">
+<div onclick="showSection('members')" style="background:#1f1f1f;padding:25px;border-radius:15px;cursor:pointer;">
+<h2>👥 Members</h2>
+<p>Manage all gym members</p>
+</div>
 
-<h1>CARVEX ADMIN PANEL</h1>
+<div onclick="showSection('leaderboard')" style="background:#1f1f1f;padding:25px;border-radius:15px;cursor:pointer;">
+<h2>🏆 Leaderboard</h2>
+<p>Approve gym records</p>
+</div>
 
-<p>Welcome, Admin.</p>
+<div onclick="showSection('membership')" style="background:#1f1f1f;padding:25px;border-radius:15px;cursor:pointer;">
+<h2>💰 Membership</h2>
+<p>Renew & manage fees</p>
+</div>
 
-<button>👥 Members</button><br><br>
-<button>🏆 Leaderboard</button><br><br>
-<button>💰 Membership</button><br><br>
-<button>📧 Email Reminders</button>
+<div onclick="showSection('email')" style="background:#1f1f1f;padding:25px;border-radius:15px;cursor:pointer;">
+<h2>📧 Email</h2>
+<p>Send reminders</p>
+</div>
 
-</body>
-</html>
+</div>
+
+<div id="content" style="max-width:900px;margin:auto;"></div>

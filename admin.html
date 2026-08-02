@@ -340,63 +340,35 @@ function members(){
 
 document.getElementById("content").innerHTML=`
 
-<h1 style="color:#ff2b2b;">Members</h1>
+<h1 style="color:#ff2b2b;">👥 Members</h1>
 
-<br>
+<input id="memberName" placeholder="Enter Member Name">
 
-<input placeholder="Search Member">
+<button class="red" onclick="addMember()">Add Member</button>
 
 <table>
+
+<thead>
 
 <tr>
 
 <th>Name</th>
 
-<th>Status</th>
-
-<th>Expiry</th>
+<th>Action</th>
 
 </tr>
 
-<tr>
+</thead>
 
-<td>Rahul</td>
+<tbody id="memberTable">
 
-<td>Active</td>
-
-<td>25 Aug</td>
-
-</tr>
-
-<tr>
-
-<td>Aman</td>
-
-<td>Expired</td>
-
-<td>30 Jul</td>
-
-</tr>
-
-<tr>
-
-<td>Riya</td>
-
-<td>Active</td>
-
-<td>10 Aug</td>
-
-</tr>
+</tbody>
 
 </table>
 
-<button class="red">
-
-Add Member
-
-</button>
-
 `;
+
+loadMembers();
 
 }
 
@@ -563,7 +535,62 @@ Backup Data
 }
 
 dashboard();
+let memberList = [
+"Rahul",
+"Aman",
+"Riya"
+];
 
+function loadMembers(){
+
+let table=document.getElementById("memberTable");
+
+if(!table)return;
+
+table.innerHTML="";
+
+memberList.forEach((name,index)=>{
+
+table.innerHTML+=`
+<tr>
+<td>${name}</td>
+<td>
+<button class="red" onclick="deleteMember(${index})">Delete</button>
+</td>
+</tr>
+`;
+
+});
+
+}
+
+function addMember(){
+
+let input=document.getElementById("memberName");
+
+let name=input.value.trim();
+
+if(name=="") return;
+
+memberList.push(name);
+
+input.value="";
+
+loadMembers();
+
+document.getElementById("members").innerHTML=memberList.length;
+
+}
+
+function deleteMember(index){
+
+memberList.splice(index,1);
+
+loadMembers();
+
+document.getElementById("members").innerHTML=memberList.length;
+
+}
 </script>
 
 </body>

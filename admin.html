@@ -197,7 +197,61 @@ box.innerHTML=`
 <td>Aman</td>
 
 <td>Expired</td>
+.stats{
 
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+margin-bottom:40px;
+
+}
+
+.stat{
+
+background:#181818;
+
+border:2px solid #ff2b2b;
+
+border-radius:15px;
+
+padding:25px;
+
+text-align:center;
+
+box-shadow:0 0 15px rgba(255,0,0,.2);
+
+transition:.3s;
+
+}
+
+.stat:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 0 25px rgba(255,0,0,.45);
+
+}
+
+.stat h2{
+
+font-size:38px;
+
+color:#ff2b2b;
+
+margin-bottom:10px;
+
+}
+
+.stat p{
+
+color:#bbb;
+
+font-size:15px;
+
+}
 </tr>
 
 </table>
@@ -309,6 +363,49 @@ box.innerHTML=`
 }
 
 }
+<p class="subtitle">Gym Management Dashboard</p>
+
+  <div class="stats">
+
+<div class="stat">
+<h2 id="membersCount">38</h2>
+<p>Total Members</p>
+</div>
+
+<div class="stat">
+<h2 id="incomeCount">₹18,600</h2>
+<p>This Month Income</p>
+</div>
+
+<div class="stat">
+<h2 id="feesCount">6</h2>
+<p>Fees Due</p>
+</div>
+
+<div class="stat">
+<h2 id="recordsCount">3</h2>
+<p>Pending Records</p>
+
+
+</div>
+
+  <script>
+
+let members=38;
+
+let income=18600;
+
+let due=6;
+
+let records=3;
+
+document.getElementById("membersCount").innerHTML=members;
+
+document.getElementById("incomeCount").innerHTML="₹"+income;
+
+document.getElementById("feesCount").innerHTML=due;
+
+document.getElementById("recordsCount").innerHTML=records;
 
 </script>
 

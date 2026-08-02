@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CARVEX Admin Panel</title>
+<title>CARVEX Admin</title>
 
 <style>
 
@@ -16,188 +16,58 @@ font-family:Arial,sans-serif;
 
 body{
 background:#0d0d0d;
-color:white;
-padding:40px;
+color:#fff;
+display:flex;
+min-height:100vh;
 }
 
-.container{
-max-width:1200px;
-margin:auto;
-}
-
-h1{
-text-align:center;
-font-size:48px;
-margin-bottom:10px;
-}
-
-h1 span{
-color:#ff3b3b;
-}
-
-.subtitle{
-text-align:center;
-color:#aaa;
-margin-bottom:40px;
-}
-
-.dashboard{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-margin-bottom:40px;
-}
-
-.card{
-background:#181818;
-border:2px solid #ff3b3b;
-border-radius:15px;
+.sidebar{
+width:250px;
+background:#111;
+border-right:2px solid #ff2b2b;
 padding:25px;
-cursor:pointer;
-transition:.3s;
-box-shadow:0 0 15px rgba(255,0,0,.2);
 }
 
-.card:hover{
-transform:translateY(-5px);
-box-shadow:0 0 25px rgba(255,0,0,.5);
+.logo{
+font-size:30px;
+font-weight:bold;
+text-align:center;
+margin-bottom:40px;
 }
 
-.card h2{
-margin-bottom:10px;
-color:#ff3b3b;
+.logo span{
+color:#ff2b2b;
 }
 
-.card p{
-color:#bbb;
-}
+.menu button{
 
-#content{
+width:100%;
 background:#181818;
 border:2px solid #333;
-padding:30px;
-border-radius:15px;
-min-height:250px;
-}
-
-button{
-background:#ff3b3b;
-color:white;
-border:none;
-padding:12px 25px;
-border-radius:8px;
+color:#fff;
+padding:15px;
+margin-bottom:15px;
+border-radius:10px;
 cursor:pointer;
-margin:10px;
 font-size:16px;
-font-weight:bold;
+transition:.3s;
+
 }
 
-button:hover{
-background:#ff5555;
+.menu button:hover{
+
+background:#ff2b2b;
+
 }
 
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:20px;
+.main{
+
+flex:1;
+padding:30px;
+
 }
 
-table td,table th{
-padding:12px;
-border-bottom:1px solid #333;
-text-align:left;
-}
-
-table th{
-color:#ff3b3b;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<h1>CARVEX <span>ADMIN</span></h1>
-
-<p class="subtitle">Gym Management Dashboard</p>
-
-<div class="dashboard">
-
-<div class="card" onclick="showSection('members')">
-<h2>👥 Members</h2>
-<p>Manage gym members</p>
-</div>
-
-<div class="card" onclick="showSection('leaderboard')">
-<h2>🏆 Leaderboard</h2>
-<p>Approve member records</p>
-</div>
-
-<div class="card" onclick="showSection('membership')">
-<h2>💰 Membership</h2>
-<p>Renew memberships</p>
-</div>
-
-<div class="card" onclick="showSection('email')">
-<h2>📧 Email</h2>
-<p>Send reminders</p>
-</div>
-
-</div>
-
-<div id="content">
-
-<h2 style="color:#ff3b3b;">Welcome Admin</h2>
-
-<br>
-
-<p>Select a card above to begin managing your gym.</p>
-
-</div>
-
-</div>
-
-<script>
-
-function showSection(section){
-
-let box=document.getElementById("content");
-
-if(section=="members"){
-
-box.innerHTML=`
-
-<h2 style="color:#ff3b3b;">👥 Members</h2>
-
-<br>
-
-<table>
-
-<tr>
-
-<th>Name</th>
-
-<th>Status</th>
-
-</tr>
-
-<tr>
-
-<td>Rahul</td>
-
-<td>Active</td>
-
-</tr>
-
-<tr>
-
-<td>Aman</td>
-
-<td>Expired</td>
-.stats{
+.top{
 
 display:grid;
 
@@ -205,7 +75,7 @@ grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 
 gap:20px;
 
-margin-bottom:40px;
+margin-bottom:30px;
 
 }
 
@@ -215,23 +85,11 @@ background:#181818;
 
 border:2px solid #ff2b2b;
 
-border-radius:15px;
-
 padding:25px;
 
+border-radius:15px;
+
 text-align:center;
-
-box-shadow:0 0 15px rgba(255,0,0,.2);
-
-transition:.3s;
-
-}
-
-.stat:hover{
-
-transform:translateY(-6px);
-
-box-shadow:0 0 25px rgba(255,0,0,.45);
 
 }
 
@@ -247,30 +105,306 @@ margin-bottom:10px;
 
 .stat p{
 
-color:#bbb;
-
-font-size:15px;
+color:#aaa;
 
 }
-</tr>
 
-</table>
+#content{
+
+background:#181818;
+
+border-radius:15px;
+
+padding:30px;
+
+min-height:500px;
+
+border:2px solid #333;
+
+}
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+margin-top:20px;
+
+}
+
+table th{
+
+background:#ff2b2b;
+
+padding:12px;
+
+}
+
+table td{
+
+padding:12px;
+
+border-bottom:1px solid #333;
+
+}
+
+input{
+
+width:100%;
+
+padding:12px;
+
+margin:10px 0;
+
+background:#111;
+
+border:1px solid #444;
+
+color:white;
+
+border-radius:8px;
+
+}
+
+button.red{
+
+background:#ff2b2b;
+
+border:none;
+
+padding:12px 20px;
+
+color:white;
+
+border-radius:8px;
+
+cursor:pointer;
+
+margin-top:10px;
+
+}
+
+button.red:hover{
+
+background:#ff5555;
+
+}
+
+@media(max-width:900px){
+
+body{
+
+flex-direction:column;
+
+}
+
+.sidebar{
+
+width:100%;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+
+CARVEX
+
+<span>ADMIN</span>
+
+</div>
+
+<div class="menu">
+
+<button onclick="dashboard()">🏠 Dashboard</button>
+
+<button onclick="members()">👥 Members</button>
+
+<button onclick="leaderboard()">🏆 Leaderboard</button>
+
+<button onclick="membership()">💰 Membership</button>
+
+<button onclick="email()">📧 Email</button>
+
+<button onclick="settings()">⚙ Settings</button>
+
+</div>
+
+</div>
+
+<div class="main">
+
+<div class="top">
+
+<div class="stat">
+
+<h2 id="members">38</h2>
+
+<p>Total Members</p>
+
+</div>
+
+<div class="stat">
+
+<h2 id="income">₹18600</h2>
+
+<p>Monthly Income</p>
+
+</div>
+
+<div class="stat">
+
+<h2 id="due">6</h2>
+
+<p>Fees Due</p>
+
+</div>
+
+<div class="stat">
+
+<h2 id="records">3</h2>
+
+<p>Pending Records</p>
+
+</div>
+
+</div>
+
+<div id="content">
+
+<h1 style="color:#ff2b2b;">Welcome Admin</h1>
 
 <br>
 
-<button>Add Member</button>
+<p>Select a menu from the left.</p>
 
-<button>View All</button>
+</div>
+
+</div>
+
+<script>
+
+function dashboard(){
+
+document.getElementById("content").innerHTML=`
+
+<h1 style="color:#ff2b2b;">Dashboard</h1>
+
+<br>
+
+<p>Welcome back, Admin.</p>
+
+<table>
+
+<tr>
+<th>Today's Summary</th>
+<th>Value</th>
+</tr>
+
+<tr>
+<td>Total Members</td>
+<td>38</td>
+</tr>
+
+<tr>
+<td>Income</td>
+<td>₹18,600</td>
+</tr>
+
+<tr>
+<td>Pending Records</td>
+<td>3</td>
+</tr>
+
+<tr>
+<td>Fees Due</td>
+<td>6</td>
+</tr>
+
+</table>
 
 `;
 
 }
 
-else if(section=="leaderboard"){
+function members(){
 
-box.innerHTML=`
+document.getElementById("content").innerHTML=`
 
-<h2 style="color:#ff3b3b;">🏆 Leaderboard</h2>
+<h1 style="color:#ff2b2b;">Members</h1>
+
+<br>
+
+<input placeholder="Search Member">
+
+<table>
+
+<tr>
+
+<th>Name</th>
+
+<th>Status</th>
+
+<th>Expiry</th>
+
+</tr>
+
+<tr>
+
+<td>Rahul</td>
+
+<td>Active</td>
+
+<td>25 Aug</td>
+
+</tr>
+
+<tr>
+
+<td>Aman</td>
+
+<td>Expired</td>
+
+<td>30 Jul</td>
+
+</tr>
+
+<tr>
+
+<td>Riya</td>
+
+<td>Active</td>
+
+<td>10 Aug</td>
+
+</tr>
+
+</table>
+
+<button class="red">
+
+Add Member
+
+</button>
+
+`;
+
+}
+
+function leaderboard(){
+
+document.getElementById("content").innerHTML=`
+
+<h1 style="color:#ff2b2b;">Leaderboard</h1>
 
 <br>
 
@@ -282,7 +416,7 @@ box.innerHTML=`
 
 <th>Exercise</th>
 
-<th>Weight</th>
+<th>Record</th>
 
 </tr>
 
@@ -292,7 +426,17 @@ box.innerHTML=`
 
 <td>Bench Press</td>
 
-<td>80 kg</td>
+<td>100kg</td>
+
+</tr>
+
+<tr>
+
+<td>Aman</td>
+
+<td>Deadlift</td>
+
+<td>180kg</td>
 
 </tr>
 
@@ -300,19 +444,27 @@ box.innerHTML=`
 
 <br>
 
-<button>Approve</button>
+<button class="red">
 
-<button>Reject</button>
+Approve Record
+
+</button>
+
+<button class="red">
+
+Reject
+
+</button>
 
 `;
 
 }
 
-else if(section=="membership"){
+function membership(){
 
-box.innerHTML=`
+document.getElementById("content").innerHTML=`
 
-<h2 style="color:#ff3b3b;">💰 Membership</h2>
+<h1 style="color:#ff2b2b;">Membership</h1>
 
 <br>
 
@@ -322,7 +474,19 @@ box.innerHTML=`
 
 <th>Name</th>
 
-<th>Expires</th>
+<th>Expiry</th>
+
+<th>Status</th>
+
+</tr>
+
+<tr>
+
+<td>Rahul</td>
+
+<td>25 Aug</td>
+
+<td>Active</td>
 
 </tr>
 
@@ -330,7 +494,9 @@ box.innerHTML=`
 
 <td>Aman</td>
 
-<td>5 Aug 2026</td>
+<td>30 Jul</td>
+
+<td>Expired</td>
 
 </tr>
 
@@ -338,74 +504,65 @@ box.innerHTML=`
 
 <br>
 
-<button>Renew Membership</button>
+<button class="red">
+
+Renew Membership
+
+</button>
 
 `;
 
 }
 
-else if(section=="email"){
+function email(){
 
-box.innerHTML=`
+document.getElementById("content").innerHTML=`
 
-<h2 style="color:#ff3b3b;">📧 Email Reminders</h2>
-
-<br>
-
-<p>Automatic reminders will be connected next.</p>
+<h1 style="color:#ff2b2b;">Email</h1>
 
 <br>
 
-<button>Send Reminder</button>
+<p>Email reminder system will be connected with Firebase.</p>
+
+<input placeholder="Member Email">
+
+<button class="red">
+
+Send Reminder
+
+</button>
 
 `;
 
 }
 
+function settings(){
+
+document.getElementById("content").innerHTML=`
+
+<h1 style="color:#ff2b2b;">Settings</h1>
+
+<br>
+
+<p>Admin settings will appear here.</p>
+
+<button class="red">
+
+Change Password
+
+</button>
+
+<button class="red">
+
+Backup Data
+
+</button>
+
+`;
+
 }
-<p class="subtitle">Gym Management Dashboard</p>
 
-  <div class="stats">
-
-<div class="stat">
-<h2 id="membersCount">38</h2>
-<p>Total Members</p>
-</div>
-
-<div class="stat">
-<h2 id="incomeCount">₹18,600</h2>
-<p>This Month Income</p>
-</div>
-
-<div class="stat">
-<h2 id="feesCount">6</h2>
-<p>Fees Due</p>
-</div>
-
-<div class="stat">
-<h2 id="recordsCount">3</h2>
-<p>Pending Records</p>
-
-
-</div>
-
-  <script>
-
-let members=38;
-
-let income=18600;
-
-let due=6;
-
-let records=3;
-
-document.getElementById("membersCount").innerHTML=members;
-
-document.getElementById("incomeCount").innerHTML="₹"+income;
-
-document.getElementById("feesCount").innerHTML=due;
-
-document.getElementById("recordsCount").innerHTML=records;
+dashboard();
 
 </script>
 

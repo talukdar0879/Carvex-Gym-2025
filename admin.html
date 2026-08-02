@@ -336,39 +336,79 @@ document.getElementById("content").innerHTML=`
 
 }
 
-function members(){
+function showDashboard(){
+
+document.getElementById("pageTitle").innerHTML="Dashboard";
 
 document.getElementById("content").innerHTML=`
 
-<h1 style="color:#ff2b2b;">👥 Members</h1>
+<div class="cards">
 
-<input id="memberName" placeholder="Enter Member Name">
+<div class="card">
+<h2 id="totalMembers">38</h2>
+<p>Total Members</p>
+</div>
 
-<button class="red" onclick="addMember()">Add Member</button>
+<div class="card">
+<h2 id="activeMembers">32</h2>
+<p>Active Members</p>
+</div>
 
-<table>
+<div class="card">
+<h2 id="feesDue">6</h2>
+<p>Fees Due</p>
+</div>
 
-<thead>
+<div class="card">
+<h2 id="monthlyIncome">₹18,600</h2>
+<p>Monthly Income</p>
+</div>
 
-<tr>
+<div class="card">
+<h2 id="pendingRecords">3</h2>
+<p>Pending Records</p>
+</div>
 
-<th>Name</th>
+<div class="card">
+<h2 id="newMembers">4</h2>
+<p>New Members</p>
+</div>
 
-<th>Action</th>
+</div>
 
-</tr>
+<div class="quick">
 
-</thead>
+<h2>Quick Actions</h2>
 
-<tbody id="memberTable">
+<button onclick="showMembers()">➕ Add Member</button>
 
-</tbody>
+<button onclick="showPayments()">💰 Record Payment</button>
 
-</table>
+<button onclick="showLeaderboard()">🏆 Add Record</button>
+
+<button onclick="showEmail()">📧 Send Reminder</button>
+
+</div>
+
+<div class="activity">
+
+<h2>Recent Activity</h2>
+
+<ul>
+
+<li>✅ Rahul joined today</li>
+
+<li>💰 Aman renewed membership</li>
+
+<li>🏆 Bench record approved</li>
+
+<li>👤 Riya paid ₹500</li>
+
+</ul>
+
+</div>
 
 `;
-
-loadMembers();
 
 }
 
